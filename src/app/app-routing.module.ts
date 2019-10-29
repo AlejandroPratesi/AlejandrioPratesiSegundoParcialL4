@@ -9,16 +9,17 @@ import { PaginaNoEncontradaComponent } from '../app/componentes/pagina-no-encont
 
 const routes: Routes = [
   { path: 'Home', component: HomeComponent },
-  { path: 'Home', component: HomeComponent },
   { path: 'Registrarse', component: RegistrarseComponent },
   { path: '404', component: PaginaNoEncontradaComponent },
-  { path: '', redirectTo: '/login', pathMatch: 'full' }
+  { path: '',   redirectTo: '/Home', pathMatch: 'full' },
+  { path: '**', component: PaginaNoEncontradaComponent }
 ];
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule, [RouterModule.forRoot(routes)]
-  ]
+  ],
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }
