@@ -1,6 +1,45 @@
-<div class="box">
-<form class="item" >
+<html>
 
-</form>
+<head>
+  <title>Primer Parcial Laboratorio 4 2017</title>
+</head>
 
-</div>>
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4"></div>
+      <div class="col-lg-4">
+    <h1 class="text-center login-title"></h1>
+          <img class="profile-img" src="../assets/fotos/login.png" alt="">
+ <div class="account-wall">
+          <form class="form-signin" [formGroup]="registroFormulario" id="FormIngreso" (ngSubmit)="enviarIngreso()">
+            <div class="form-group">
+              <input [formControl]="nombre" class="form-control" type="text" [(ngModel)]="unEmpleado.nombre" id="nombre" name="nombre"
+                placeholder="ingrese nombre" required/>
+              <span id="lblnombre" style="display:none;color:#FF0000;width:1%;float:right;font-size:80">*</span>
+
+              <select [formControl]="tipo" class="form-control" id="tipo" name="tipo" [(ngModel)]="unEmpleado.tipo" required>          
+          <option [ngValue]='SG' selected disabled hidden>Seleccionar tipo empleado</option>
+          <option [ngValue]=tipos[0]>Jefe</option>
+          <option [ngValue]=tipos[1]>Operario</option>
+        </select>
+              <input [formControl]="clave" class="form-control" type="password" [(ngModel)]="unEmpleado.clave" id="password" name="password"
+                placeholder="ingrese password" required/>
+              <span id="lblclave" style="display:none;color:#FF0000;width:1%;float:right;font-size:80">*</span>
+              <br>
+            
+                <button class="btn btn-lg btn-primary btn-block" type="button" id="enviar" name="enviar" (click)="enviarIngreso()" [disabled]="!registroFormulario.valid">
+          Sign in</button>
+         
+
+            </div>
+          </form>
+ </div>
+        <!--  <a href="#" [routerLink]="['/Alta']" class="text-center new-account">Crear una cuenta </a> -->
+      </div>
+      <div class="col-lg-4"></div>
+    </div>
+  </div>
+</body>
+</html>
