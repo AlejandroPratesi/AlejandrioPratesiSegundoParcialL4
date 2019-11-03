@@ -48,9 +48,13 @@
      placeholder="ingrese clave" required/>
      
      <br >
-     <button class="btn btn-lg btn-primary btn-block" type="button" id="enviar" name="enviar" (click)="enviarIngreso()" [disabled]="!registroFormulario.valid">
-      Sign in</button>
+     <button class="btn btn-lg btn-primary btn-block" type="button" id="enviar" name="enviar" (click)="onLogin()">
+      Iniciar sesion</button>
      
+      <br >
+      <button class="btn btn-lg btn-primary btn-block" type="button" id="enviar" name="enviar" (click)="registrarse()">
+       Registrar</button>
+
       </div>
       <div class="col-lg-4"></div>
     </div>
