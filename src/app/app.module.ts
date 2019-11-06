@@ -15,6 +15,8 @@ import { ListadoComponent } from './componentes/listado/listado.component';
 // SERVICIOS
 import {UserService} from './servicios/user.service';
 import { ListadoPersonasComponent } from './componentes/listado-personas/listado-personas.component';
+import { DataService } from './servicios/data.service';
+
 
 
 @NgModule({
@@ -33,7 +35,7 @@ import { ListadoPersonasComponent } from './componentes/listado-personas/listado
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [UserService],
+  providers: [UserService,DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
