@@ -1,1 +1,25 @@
-Registrarse
+
+<div class="container mt-3">
+        <h3>Registrarse</h3>
+<form>
+    <div class="form-group">
+      <label for="nombre" class="sr-only">Nombre</label>
+      <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="form-control form-control-sm" placeholder="ingrese el nombre" name="nombre" required
+      [(ngModel)]="nombreInput">
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="form-group">
+      <label for="apellido" class="sr-only">Apellido</label>
+      <input type="text" name="apellido" id="apellido" placeholder="Apellido" class="form-control form-control-sm" placeholder="ingrese el apellido" name="apellido" required
+        [(ngModel)]="apellidoInput">
+    </div>
+
+      <button type="submit" class="btn btn-primary btn-sm" (click)="onAgregarPersona()">Agregar</button> 
+    <!-- <button type="submit" class="btn btn-primary btn-sm">Agregar</button>  -->
+  </form>
+  
+  <app-listado-personas *ngFor="let personaElemento of personas; let i = index" [persona]="personaElemento" [indice]="i">
+</app-listado-personas>
+</div>
+

@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule} from '@angular/common/http';
+import { FormsModule} from '@angular/forms';
 
 // COMPONENTES
 import { AppComponent } from './app.component';
@@ -13,6 +14,7 @@ import { ListadoComponent } from './componentes/listado/listado.component';
 
 // SERVICIOS
 import {UserService} from './servicios/user.service';
+import { ListadoPersonasComponent } from './componentes/listado-personas/listado-personas.component';
 
 
 @NgModule({
@@ -22,10 +24,12 @@ import {UserService} from './servicios/user.service';
     PaginaNoEncontradaComponent,
     RegistrarseComponent,
     LoginComponent,
-    ListadoComponent
+    ListadoComponent,
+    ListadoPersonasComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     AppRoutingModule
   ],

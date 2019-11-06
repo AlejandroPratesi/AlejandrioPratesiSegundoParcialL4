@@ -1,5 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Injectable , EventEmitter } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
+import { Persona} from '../clases/persona';
+
 
 @Injectable({
   providedIn: 'root'
@@ -7,15 +9,19 @@ import { HttpClient} from '@angular/common/http';
 export class UserService {
 
   private listadoPaises;
+  personas: Persona[] = [];
 
   constructor(private http: HttpClient) { }
 
-  getPaises(){
+  saludar = new EventEmitter<number>();
+
+ getPaises(){
  this.listadoPaises = this.http.get('https://restcountries.eu/rest/v2/all')
  console.log(this.listadoPaises)
  return this.listadoPaises;
   }
-/* 
+
+  /* 
   getPais(id: number): Observable<Hero> {
     const url = `${this.heroesUrl}/${id}`;
     return this.http.get<Hero>(url).pipe(
@@ -31,4 +37,9 @@ export class UserService {
   setToken(token){
   localStorage.setItem("token",token);
   }
+
+  onAgregar(per: Persona){
+    this.personas.push(per)
+  }
+
 }
