@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: '404', component: PaginaNoEncontradaComponent },
   { path: 'Login', component: LoginComponent },
   { path: 'Listado', component: ListadoComponent },
-  { path: '',   redirectTo: '/Home', pathMatch: 'full' },
+  { path: '',   redirectTo: '/Login', pathMatch: 'full' },
   { path: '**', component: PaginaNoEncontradaComponent }
 ];
 

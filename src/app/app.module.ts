@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule} from '@angular/common/http';
-import { FormsModule} from '@angular/forms';
+import { FormsModule , ReactiveFormsModule } from '@angular/forms';
 
 // COMPONENTES
 import { AppComponent } from './app.component';
@@ -16,7 +16,7 @@ import { ListadoComponent } from './componentes/listado/listado.component';
 import {UserService} from './servicios/user.service';
 import { ListadoPersonasComponent } from './componentes/listado-personas/listado-personas.component';
 import { DataService } from './servicios/data.service';
-
+import { NavbarComponent } from './componentes/navbar/navbar.component';
 
 
 @NgModule({
@@ -27,11 +27,13 @@ import { DataService } from './servicios/data.service';
     RegistrarseComponent,
     LoginComponent,
     ListadoComponent,
-    ListadoPersonasComponent
+    ListadoPersonasComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule
   ],

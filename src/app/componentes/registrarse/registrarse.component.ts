@@ -1,6 +1,7 @@
 import { Component, OnInit , Output, EventEmitter} from '@angular/core';
 import { Persona } from '../../clases/persona';
 import { UserService } from '../../servicios/user.service';
+import { Validators, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-registrarse',
@@ -13,11 +14,19 @@ export class RegistrarseComponent implements OnInit {
   nombreInput:string;
   apellidoInput:string;
 
-  constructor(private ServicioUsuario: UserService ) {
+  constructor(private ServicioUsuario: UserService ,private builder:FormBuilder) {
     this.ServicioUsuario.saludar.subscribe(
       (indice:number) => alert(indice)
     );
    }
+
+  /*  nombre = new FormControl('',[Validators.required]);
+   apellido = new FormControl('',[Validators.required]);
+
+   registroFormulario:FormGroup = this.builder.group({
+     nombre: this.nombreInput,
+     apellido: this.apellidoInput
+   }) */
 
   ngOnInit() {
     this.personas = this.ServicioUsuario.personas;
