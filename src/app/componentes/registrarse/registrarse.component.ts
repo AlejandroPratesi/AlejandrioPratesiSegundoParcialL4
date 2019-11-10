@@ -14,22 +14,25 @@ export class RegistrarseComponent implements OnInit {
   nombreInput:string;
   apellidoInput:string;
 
-  constructor(private ServicioUsuario: UserService ,private builder:FormBuilder) {
+  constructor(private ServicioUsuario: UserService,
+    private builder:FormBuilder) {
     this.ServicioUsuario.saludar.subscribe(
       (indice:number) => alert(indice)
     );
    }
 
-  /*  nombre = new FormControl('',[Validators.required]);
-   apellido = new FormControl('',[Validators.required]);
-
-   registroFormulario:FormGroup = this.builder.group({
-     nombre: this.nombreInput,
-     apellido: this.apellidoInput
-   }) */
-
   ngOnInit() {
-    this.personas = this.ServicioUsuario.personas;
+   // No va mas 
+   // this.personas = this.ServicioUsuario.personas;
+  
+   this.ServicioUsuario.obtenerPersonas()
+   .subscribe(
+    (personas: Persona[]) => {
+      this.personas = personas;
+      this.ServicioUsuario.setPersonas(personas);
+    }
+   );
+  
   }
 
   onAgregarPersona(){
