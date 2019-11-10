@@ -1,6 +1,7 @@
 import { Injectable , EventEmitter } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { Persona } from '../clases/persona';
+import { DataService } from './data.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +12,11 @@ export class UserService {
   personas: Persona[] = [];
 
   
-    saludar = new EventEmitter<number>();
-  constructor(private http: HttpClient) { }
-  //constructor() {}
+  saludar = new EventEmitter<number>();
+
+  constructor(private http: HttpClient,
+              private dataService: DataService) { }
+  
 
   
  getPaises(){
@@ -44,6 +47,7 @@ export class UserService {
   onAgregar(persona:Persona){
    // this.loginServicio.enviarMensajeConsola("Inyectando.." + persona.apellido + ', ' + persona.nombre)
     this.personas.push(persona);
+    this.dataService.guardarPersonas(this.personas)
   }
   
 }
