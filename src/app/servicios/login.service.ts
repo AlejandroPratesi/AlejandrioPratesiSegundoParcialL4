@@ -25,4 +25,9 @@ export class LoginService {
     this.router.navigate(['/']);
   }
 
+
+  getIdToiken(){
+    return this.token;
+  }
+
 }
