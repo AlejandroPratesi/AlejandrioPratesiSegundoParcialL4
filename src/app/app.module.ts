@@ -17,6 +17,7 @@ import {UserService} from './servicios/user.service';
 import { ListadoPersonasComponent } from './componentes/listado-personas/listado-personas.component';
 import { DataService } from './servicios/data.service';
 import { NavbarComponent } from './componentes/navbar/navbar.component';
+import { LoginService } from './servicios/login.service';
 
 
 @NgModule({
@@ -37,7 +38,7 @@ import { NavbarComponent } from './componentes/navbar/navbar.component';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [UserService,DataService],
+  providers: [UserService,DataService,LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
