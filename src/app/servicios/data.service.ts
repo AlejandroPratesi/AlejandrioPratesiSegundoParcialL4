@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { Persona } from '../clases/persona';
+import { LoginService } from './login.service';
 
 
 @Injectable({
@@ -8,7 +9,8 @@ import { Persona } from '../clases/persona';
 })
 export class DataService {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient,
+              private loginServicio: LoginService) { }
 
   guardarPersonas(personas: Persona[]){
     this.httpClient.put('https://listado-personas-21f8c.firebaseio.com/datos.json',personas)
@@ -19,8 +21,10 @@ export class DataService {
   }
 
   CargarPersonas(){
+    // pido el TOKEN
+    const token = this.loginServicio.getIdToiken()
     // Obtengo los datos de la base de datos
-    return this.httpClient.get('https://listado-personas-21f8c.firebaseio.com/datos.json');
+    return this.httpClient.get('https://listado-personas-21f8c.firebaseio.com/datos.json?auth=' + token);
     // regresa un observable por lo tanto hay que subscribirse
   }
 
