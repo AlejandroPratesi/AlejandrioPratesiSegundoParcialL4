@@ -18,6 +18,7 @@ import { ListadoPersonasComponent } from './componentes/listado-personas/listado
 import { DataService } from './servicios/data.service';
 import { NavbarComponent } from './componentes/navbar/navbar.component';
 import { LoginService } from './servicios/login.service';
+import { LoginGuardianService } from './servicios/login-guardian.service';
 
 
 @NgModule({
@@ -38,7 +39,7 @@ import { LoginService } from './servicios/login.service';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [UserService,DataService,LoginService],
+  providers: [UserService,DataService,LoginService,LoginGuardianService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
