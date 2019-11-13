@@ -26,9 +26,20 @@ export class LoginService {
    
   }
 
-
   getIdToiken(){
     return this.token;
+  }
+
+  isAutenticado(){
+    return this.token != null;
+  }
+
+  logout(){
+    firebase.auth().signOut().then(()=>{
+      this.token = null;
+      this.router.navigate(['Login']);
+    }).catch(error => console.log("Error al cerrar sesion " + error));
+
   }
 
 }
